@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Счетчик просмотров</title>
+</head>
+<body>
+    <h1>Страница</h1>
+    <p>Количество просмотров: <span id="counter"></span></p>
+
+    <script>
+        // Запрос к серверу для получения значения счетчика
+        fetch('/counter')
+            .then(response => response.json())
+            .then(data => {
+                // Обновление значения счетчика на странице
+                document.getElementById('counter').innerText = data.count;
+            })
+            .catch(error => console.error('Ошибка:', error));
+    </script>
+       <script src="style.js"></script>
+</body>
+</html>
